@@ -101,7 +101,7 @@ int main(){
             for(r=0; r<cA; r++) res[p][q]+=matA[p][r]*matB[r][q];
         }
     }
-    for(p=0; p<rA; p++){ for(q=0; q<cB; q++) cout<<res[p][q]<<" "; cout<<"\n"; }
+    for(p=0; p<rA; p++){ for(q=0; q<cB; q++) cout<<res[p][q]<<" "; cout<<"\n";}
 }
 //ques 5
 #include <iostream>
@@ -110,7 +110,7 @@ int main(){
     int rr, cc, i2, j2, mat[25][25];
     cin>>rr>>cc;
     for(i2=0; i2<rr; i2++) for(j2=0; j2<cc; j2++) cin>>mat[i2][j2];
-    for(i2=0; i2<cc; i2++){ for(j2=0; j2<rr; j2++) cout<<mat[j2][i2]<<" "; cout<<"\n"; }
+    for(i2=0; i2<cc; i2++){ for(j2=0; j2<rr; j2++) cout<<mat[j2][i2]<<" "; cout<<"\n";}
 }
 //ques 6
 #include <iostream>
