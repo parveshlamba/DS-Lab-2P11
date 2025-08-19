@@ -1,6 +1,6 @@
 /*
-Name: Prashant Narayan Verma
-Roll No: 1024160140
+Name:Bisman Singh Rai
+Roll No: 1024160130
 Program: Find sum of every row and every column in a 2D array */
 
 #include <iostream>
@@ -40,3 +40,4 @@ int main() {
 
     return 0;
 }
+
