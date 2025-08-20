@@ -1,4 +1,4 @@
-// Q1. Binary Search O(log n)
+// 1. Binary Search O(log n)
 
 #include<iostream>
 using namespace std;
@@ -27,7 +27,7 @@ int main() {
     return 0;
 }
 
-// Q2. Bubble Sort
+// 2. Bubble Sort
 
 #include <iostream>
 using namespace std;
@@ -52,7 +52,7 @@ int main() {
     return 0;
 }
 
-// Q3. Logic to find missing number in array
+// 3. Logic to find missing number in array
 
 #include <iostream>
 using namespace std;
@@ -83,7 +83,7 @@ int findMissingNumberBinary(int arr[], int size, int n) { // Binary Search
     return -1;
 }
 
-// Q4.
+// 4.
 // 4.a
 #include <iostream>
 #include <cstring>
@@ -199,7 +199,7 @@ int main() {
     return 0;
 }
 
-// Q5. Matrix Representation
+// 5. Matrix Representation
 
 #include <iostream>
 #include <vector>
@@ -350,124 +350,7 @@ int main() {
     return 0;
 }
 
-// Q6. Sparse Matrix Representation
-
-#include <iostream>
-#include <vector>
-using namespace std;
-
-struct Element {
-    int row, col, val;
-};
-
-struct Sparse {
-    int rows, cols, num;
-    vector<Element> data;
-};
-
-Sparse transpose(Sparse &s) {
-    Sparse t;
-    t.rows = s.cols;
-    t.cols = s.rows;
-    t.num = s.num;
-    t.data.resize(s.num);
-
-    int k = 0;
-    for (int i = 0; i < s.cols; i++) {
-        for (int j = 0; j < s.num; j++) {
-            if (s.data[j].col == i) {
-                t.data[k++] = {s.data[j].col, s.data[j].row, s.data[j].val};
-            }
-        }
-    }
-    return t;
-}
-
-Sparse add(Sparse &a, Sparse &b) {
-    Sparse c;
-    if (a.rows != b.rows || a.cols != b.cols) {
-        cout << "Incompatible dimensions\n";
-        return c;
-    }
-    c.rows = a.rows; c.cols = a.cols;
-    int i=0,j=0;
-    while(i<a.num && j<b.num) {
-        if(a.data[i].row < b.data[j].row ||
-          (a.data[i].row==b.data[j].row && a.data[i].col < b.data[j].col)) {
-            c.data.push_back(a.data[i++]);
-        }
-        else if(b.data[j].row < a.data[i].row ||
-          (b.data[j].row==a.data[i].row && b.data[j].col < a.data[i].col)) {
-            c.data.push_back(b.data[j++]);
-        }
-        else {
-            c.data.push_back({a.data[i].row,a.data[i].col,a.data[i].val+b.data[j].val});
-            i++; j++;
-        }
-    }
-    while(i<a.num) c.data.push_back(a.data[i++]);
-    while(j<b.num) c.data.push_back(b.data[j++]);
-    c.num = c.data.size();
-    return c;
-}
-
-Sparse multiply(Sparse &a, Sparse &b) {
-    Sparse c;
-    if (a.cols != b.rows) {
-        cout << "Incompatible dimensions\n";
-        return c;
-    }
-    c.rows = a.rows; c.cols = b.cols;
-
-    for(int i=0;i<a.num;i++) {
-        for(int j=0;j<b.num;j++) {
-            if(a.data[i].col == b.data[j].row) {
-                int r = a.data[i].row;
-                int ccol = b.data[j].col;
-                int val = a.data[i].val * b.data[j].val;
-
-                bool found=false;
-                for(auto &e : c.data) {
-                    if(e.row==r && e.col==ccol) {
-                        e.val += val;
-                        found=true;
-                        break;
-                    }
-                }
-                if(!found) c.data.push_back({r,ccol,val});
-            }
-        }
-    }
-    c.num = c.data.size();
-    return c;
-}
-
-
-int main() {
-    Sparse A{3,3,3, {{0,2,5},{1,0,2},{2,1,7}}};
-    Sparse B{3,3,3, {{0,2,1},{1,1,4},{2,0,3}}};
-
-    cout<<"Matrix A:\n"; display(A);
-    cout<<"Matrix B:\n"; display(B);
-
-    cout<<"\nTranspose of A:\n";
-    Sparse T = transpose(A);
-    display(T);
-
-    cout<<"\nAddition (A+B):\n";
-    Sparse C = add(A,B);
-    display(C);
-
-    cout<<"\nMultiplication (A*B):\n";
-    Sparse M = multiply(A,B);
-    display(M);
-
-    return 0;
-}
-
-
-
-// Q7. Count inversions in an array
+// 7. Count inversions in an array
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -515,7 +398,7 @@ int main() {
 
 
 
-// Q8. Count Distinct Elements in an Array
+// 8. Count Distinct Elements in an Array
 
 #include <iostream>
 #include <algorithm>
